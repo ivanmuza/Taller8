@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+{% block body %}
+<style>
+  body {
+  background: #27cbcc;
+  background: -webkit-linear-gradient(to right, #1aa099, #27cbcc); 
+  background: linear-gradient(to right, #049cd8, #27cbcc); 
+}
+</style>
+<div class="row">
+  <div class="col-md-4 offset-md-4">
+    <div class="card card-body">
+      <form action="" method="post">
+          <h1>¡Bienvenido!</h1><br/><br/>
+          <a href="{% url 'crear_persona' %}"  class="btn btn-primary btn-lg btn-block">Registrarse</a>
+      </form>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
