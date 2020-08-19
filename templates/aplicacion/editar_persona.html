@@ -1,15 +1,31 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Crear Persona</title>
-</head>
-<body>
-    <form action="" method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Actualizar</button>
-    </form>
-</body>
-</html>
+{% extends "layout.html" %}
+{% block body %}
+
+  <div class="row">
+    <div class="col-md-4 offset-md-4">
+      <div class="card card-body">
+      <div class="form-group">
+        <form action="" onsubmit="verificarPasswords(); return false" method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+          <div class="form-group">
+              <label for="pass2">Vuelve a escribir la Contraseña</label>
+              <input type="password" class="form-control" id="pass2" required>                
+          </div>   
+          <div id="msg"></div>
+          <!-- Mensajes de Verificación -->
+          <div id="error" class="alert alert-danger ocultar" role="alert">
+              Las Contraseñas no coinciden, vuelve a intentar!
+          </div>
+          <div id="ok" class="alert alert-success ocultar" role="alert">
+              Las Contraseñas coinciden! (Procesando formulario ... )
+          </div>
+          <!-- Fin Mensajes de Verificación --> 
+            <button type="submit" class="btn btn-primary btn-block">Actualizar</button>
+        </form>
+      </div>
+      </div>
+    </div>
+  </div>
+
+{% endblock %}

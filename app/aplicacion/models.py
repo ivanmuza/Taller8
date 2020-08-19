@@ -22,11 +22,11 @@ class Persona(models.Model):
     nombre = models.CharField(max_length=50)
     apellido = models.CharField(max_length=50)
     tipodocumento = models.ForeignKey(TipoDocumento, on_delete= models.CASCADE)
-    documento = models.IntegerField()
+    documento = models.BigIntegerField()
     lugarresidencia = models.ForeignKey(Ciudad, on_delete= models.CASCADE)
     fechanacimiento = models.DateField()
     email = models.EmailField(max_length=254)
-    telefono = models.CharField(max_length=12)
+    telefono = models.BigIntegerField()
     usuario = models.CharField(max_length=40)
     password = models.CharField(max_length=20)
 

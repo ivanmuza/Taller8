@@ -1,15 +1,16 @@
-
-{% extends "index.html" %}
+{% extends "layout.html" %}
 {% block body %}
+<a  href="/aplicacion/crear_persona" class="btn btn-success btn-sm">Crear Registro</a><br/>
+<br/>
 <table class="table table-striped table-hover">
     <thead>
       <tr>
         <th scope="col">ID</th>
         <th scope="col">Nombre</th>
         <th scope="col">Apellido</th>
-        <th scope="col">Tipo de Documento</th>
+        <th scope="col">DTD</th>
         <th scope="col">Documento</th>
-        <th scope="col">Lugar de Residencia</th>
+        <th scope="col">Ciudad</th>
         <th scope="col">Fecha de Nacimiento</th>
         <th scope="col">Email</th>
         <th scope="col">Telefono</th>
