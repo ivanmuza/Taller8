@@ -4,8 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Index</title>
-    {# Archivos #}
-    {% load static %}
     <link rel="stylesheet" href="https://bootswatch.com/4/materia/bootstrap.min.css">
     <style type="text/css">
       .ocultar {
@@ -87,5 +85,28 @@
   } 
   
 </script>
+<!-- Script de búsqueda -->
+<script>
+    // Busco todos los controles de búsqueda.
+    $('[type="search"]').each(function() {
+      var $buscador = $(this);
+      
+      // Obtengo la referencia a la tabla vinculada a este control de búsqueda.
+      var $tabla = $('#' + $buscador.data('target'));
+      
+      // Cuando se presione una tecla sobre la caja de búsqueda...
+      $buscador.on('keyup', function() {
+        // ...me fijo si está vacío.
+        if ($buscador.val().trim() === '') {
+          // Si está vacío, muestro todas las filas.
+          $('tr', $tabla).show();
+        } else {
+          // Si no, oculto todas y sólo muestro las que contengan el texto que estoy buscando.
+          $('tr', $tabla).hide();
+          $('tr:contains("' + $buscador.val() + '")', $tabla).show();
+        }
+      });
+    });
+  </script>
 </body>
 </html>
